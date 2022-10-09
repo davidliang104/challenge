@@ -12,17 +12,17 @@ from keras.utils.data_utils import pad_sequences
 
 app = Flask(__name__)
 
-# # Load model
-model = load_model("model/model.h5")
-
 @app.route('/')
-def fun():
+def index():
     return render_template('index.html')
 
-@app.route("/", methods=['GET', 'POST'])
-def predict():
+@app.route("/translate", methods=['GET', 'POST'])
+def translate():
     # Get sentence from form
     sentence = request.form["sentence"]
+
+    # Load model
+    model = load_model("model/model.h5")
 
     # Load English and French tokenizers
     eng_tokenizer = Tokenizer()
