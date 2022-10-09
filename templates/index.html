@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Machine Translation</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">LeTranslator</h1>
+        <h3 style="text-align: center;">An almost-working English-to-French translator</h3>
+        <form name = "inputForm" action="." method="POST">
+            <label>Enter a sentence: </label>
+            <input type="text" name="sentence">
+            <input type="submit" value="Translate">
+            {% if res %}
+                <h2>Result: </h2>
+                <p id="result">{{ res }}</p>
+            {% endif %}
+        </form>
+    </body>
+</html>
